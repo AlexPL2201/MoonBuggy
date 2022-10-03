@@ -4,6 +4,7 @@ namespace MoonBuggy {
         private Scene _scene;
         private static GameEngine _gameEngine;
         private ScreenRender _screenRender;
+        private GameSettings _gameSettings;
 
         private GameEngine() {
 
@@ -17,6 +18,7 @@ namespace MoonBuggy {
         }
 
         private GameEngine(GameSettings gameSettings) {
+            _gameSettings = gameSettings;
             _isNotOver = true;
             _scene = Scene.GetScene(gameSettings);
             _screenRender = new ScreenRender(gameSettings);
@@ -24,8 +26,9 @@ namespace MoonBuggy {
 
         public void Run() {
             do {
+                _screenRender.ClearScene();
                 _screenRender.Render(_scene);
-
+                Thread.Sleep(_gameSettings.GameSpeed);
 
             } while(_isNotOver);
         }

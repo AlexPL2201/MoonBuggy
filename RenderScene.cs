@@ -12,8 +12,8 @@ namespace MoonBuggy {
             _screenHeight = gameSettings.ConsoleHeight;
             _screenMatrix = new char [gameSettings.ConsoleHeight, gameSettings.ConsoleWidth];
 
-            Console.WindowHeight = gameSettings.ConsoleHeight;
-            Console.WindowWidth = gameSettings.ConsoleWidth;
+            // Console.WindowHeight = gameSettings.ConsoleHeight;
+            // Console.WindowWidth = gameSettings.ConsoleWidth;
             Console.CursorVisible = false;
             Console.SetCursorPosition(0, 0);
 
@@ -51,7 +51,7 @@ namespace MoonBuggy {
                 _screenMatrix[gameObj.GameObjectPlace.YCoord, gameObj.GameObjectPlace.XCoord] = gameObj.Figure;
             }
             else {
-                _screenMatrix[gameObj.GameObjectPlace.YCoord, gameObj.GameObjectPlace.XCoord] = ' ';
+                ;// _screenMatrix[gameObj.GameObjectPlace.YCoord, gameObj.GameObjectPlace.XCoord] = ' ';
             }
         }
 
@@ -59,6 +59,19 @@ namespace MoonBuggy {
             foreach (GameObj gameObj in gameObjs) {
                 AddGameObjectForRendering(gameObj);
             }
+        }
+
+        public void ClearScene() {
+            StringBuilder stringBuilder = new StringBuilder();
+
+            for (int y = 0; y < _screenHeight; y++) {
+                for (int x = 0; x < _screenWidth; x++) {
+                    stringBuilder.Append(' ');
+                }
+                stringBuilder.Append(Environment.NewLine);
+            }
+            Console.WriteLine(stringBuilder.ToString());
+            Console.SetCursorPosition(0, 0);
         }
     }
 }

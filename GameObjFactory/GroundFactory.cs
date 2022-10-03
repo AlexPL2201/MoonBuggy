@@ -22,7 +22,7 @@ namespace MoonBuggy {
             int starty = GameSettings.GroundStartYCoord;
 
             for (int y = 0; y < GameSettings.NumberOfGroundRows; y++) {
-                for (int x = 0; y < GameSettings.NumberOfGroundColls; x++) {
+                for (int x = 0; x < GameSettings.NumberOfGroundColls; x++) {
                     GameObjPlace objectPlace = new GameObjPlace() {XCoord = startX + x, YCoord = starty + y};
                     GameObj groundObj = GetGameObj(objectPlace);
                     ground.Add(groundObj);
