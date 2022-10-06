@@ -20,6 +20,7 @@ namespace MoonBuggy {
         }
 
         public void Render(Scene scene) {
+            ClearScene();
             Console.SetCursorPosition(0, 0);
             AddListForRendering(scene.ground);
             AddGameObjectForRendering(scene.buggy);
@@ -52,7 +53,7 @@ namespace MoonBuggy {
                 _screenMatrix[gameObj.GameObjectPlace.YCoord, gameObj.GameObjectPlace.XCoord] = gameObj.Figure;
             }
             else {
-                ;// _screenMatrix[gameObj.GameObjectPlace.YCoord, gameObj.GameObjectPlace.XCoord] = ' ';
+                // _screenMatrix[gameObj.GameObjectPlace.YCoord, gameObj.GameObjectPlace.XCoord] = ' ';
             }
         }
 
@@ -67,7 +68,7 @@ namespace MoonBuggy {
 
             for (int y = 0; y < _screenHeight; y++) {
                 for (int x = 0; x < _screenWidth; x++) {
-                    stringBuilder.Append(' ');
+                    _screenMatrix[y, x] = ' ';
                 }
                 stringBuilder.Append(Environment.NewLine);
             }
