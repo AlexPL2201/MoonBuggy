@@ -3,7 +3,7 @@ namespace MoonBuggy {
         public List <GameObj> ground;
         public GameObj buggy;
         // GameObj _alien;
-        // GameObj _obstruction;
+        public GameObj obstruction;
         GameSettings _gameSettings;
 
         private static Scene _scene;
@@ -11,6 +11,7 @@ namespace MoonBuggy {
         private Scene(GameSettings gameSettings) {
             _gameSettings = gameSettings;
             ground = new GroundFactory(_gameSettings).GetGround();
+            obstruction = new ObstructionFactory(_gameSettings).GetGameObj();
             buggy = new BuggyFactory(_gameSettings).GetGameObj();
         }
 
@@ -18,7 +19,6 @@ namespace MoonBuggy {
             if (_scene == null) {
                 _scene = new Scene(gameSettings);
             }
-
             return _scene;
         }
     }

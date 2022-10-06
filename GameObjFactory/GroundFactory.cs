@@ -10,9 +10,9 @@ namespace MoonBuggy {
 
         public override GameObj GetGameObj(GameObjPlace objectPlace)
         {
-            GameObj groundObject = new GroundObj() { Figure = GameSettings.Ground, GameObjectPlace = objectPlace, GameObjectType = GameObjType.GroundObj};
-
+            GameObj groundObject = new GroundObj() { Figure = GameSettings.Ground, GameObjectPlace = objectPlace, GameObjectType = GameObjType.GroundObj };
             return groundObject;
+
         }
 
         public List<GameObj> GetGround() {

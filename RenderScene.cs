@@ -23,6 +23,7 @@ namespace MoonBuggy {
             Console.SetCursorPosition(0, 0);
             AddListForRendering(scene.ground);
             AddGameObjectForRendering(scene.buggy);
+            AddGameObjectForRendering(scene.obstruction);
 
 //          Хотя класс System.String предоставляет нам широкую функциональность по работе со строками, 
 //          все таки он имеет свои недостатки. Прежде всего, объект String представляет собой неизменяемую строку.

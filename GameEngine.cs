@@ -29,8 +29,22 @@ namespace MoonBuggy {
                 _screenRender.ClearScene();
                 _screenRender.Render(_scene);
                 Thread.Sleep(_gameSettings.GameSpeed);
+                CalculateMoveObstruction();
 
             } while(_isNotOver);
+        }
+
+        public void CalculateMoveObstruction() {
+            if (_scene.obstruction.GameObjectPlace.XCoord > 1) {
+                if (_scene.obstruction.GameObjectPlace.XCoord == _scene.buggy.GameObjectPlace.XCoord && _scene.obstruction.GameObjectPlace.YCoord == _scene.buggy.GameObjectPlace.YCoord) {
+                    _isNotOver = false;
+                }
+
+                _scene.obstruction.GameObjectPlace.XCoord--;
+            }
+            else {
+                _scene.obstruction.GameObjectPlace.XCoord = _gameSettings.ConsoleWidth;
+            }
         }
     }
 }
