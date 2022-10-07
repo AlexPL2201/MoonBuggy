@@ -5,12 +5,14 @@ namespace MoonBuggy {
     class ScreenRender {
         int _screenWidth;
         int _screenHeight;
+        public int _score;
         char[,] _screenMatrix;
 
         public ScreenRender(GameSettings gameSettings) {
             _screenWidth = gameSettings.ConsoleWidth;
             _screenHeight = gameSettings.ConsoleHeight;
             _screenMatrix = new char [gameSettings.ConsoleHeight, gameSettings.ConsoleWidth];
+            _score = 0;
 
             // Console.WindowHeight = gameSettings.ConsoleHeight;
             // Console.WindowWidth = gameSettings.ConsoleWidth;
@@ -39,13 +41,21 @@ namespace MoonBuggy {
 
             for (int y = 0; y < _screenHeight; y++) {
                 for (int x = 0; x < _screenWidth; x++) {
-                    stringBuilder.Append(_screenMatrix[y, x]);
+                    if (x == 40 && y == 2) {
+                        stringBuilder.Append($"Score: {_score}");
+                    } else {
+                        stringBuilder.Append(_screenMatrix[y, x]);
+                    }
                 }
                 stringBuilder.Append(Environment.NewLine);
             }
+            _score += 1;
             Console.WriteLine(stringBuilder.ToString());
             Console.SetCursorPosition(0, 0);
+        }
 
+        public void GameOver() {
+            
         }
 
         public void AddGameObjectForRendering(GameObj gameObj) {

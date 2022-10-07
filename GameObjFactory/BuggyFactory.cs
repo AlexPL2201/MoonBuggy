@@ -6,7 +6,7 @@ namespace MoonBuggy {
 
         }
 
-        public override GameObj GetGameObj(GameObjPlace objectPlace)
+        public override GameObj GetGameObj(ref GameObjPlace objectPlace)
         {
             GameObj gameObj = new BuggyObj() { Figure = GameSettings.Buggy, GameObjectPlace = objectPlace, GameObjectType = GameObjType.Buggy };
 
@@ -15,7 +15,7 @@ namespace MoonBuggy {
 
         public GameObj GetGameObj() {
             GameObjPlace place = new GameObjPlace() { XCoord = GameSettings.PlayerBuggyStartXCoord, YCoord = GameSettings.PlayerBuggyStartYCoord };
-            GameObj gameObj = GetGameObj(place);
+            GameObj gameObj = GetGameObj(ref place);
             return gameObj;
         }
     }

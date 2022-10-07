@@ -8,7 +8,7 @@ namespace MoonBuggy {
 
         }
 
-        public override GameObj GetGameObj(GameObjPlace objectPlace)
+        public override GameObj GetGameObj(ref GameObjPlace objectPlace)
         {
             GameObj groundObject = new GroundObj() { Figure = GameSettings.Ground, GameObjectPlace = objectPlace, GameObjectType = GameObjType.GroundObj };
             return groundObject;
@@ -24,7 +24,7 @@ namespace MoonBuggy {
             for (int y = 0; y < GameSettings.NumberOfGroundRows; y++) {
                 for (int x = 0; x < GameSettings.NumberOfGroundColls; x++) {
                     GameObjPlace objectPlace = new GameObjPlace() {XCoord = startX + x, YCoord = starty + y};
-                    GameObj groundObj = GetGameObj(objectPlace);
+                    GameObj groundObj = GetGameObj(ref objectPlace);
                     ground.Add(groundObj);
                 }
             }
