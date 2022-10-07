@@ -3,7 +3,7 @@ namespace MoonBuggy
     public class GameMenu
     {
         private int _SelectedIndex;
-        private string[] _Options = {"Играть", "инфа", "Завершить"};
+        private string[] _Options = {"Играть", "Рекорды", "Завершить"};
         private string _Prompt;
         private GameSettings _gameSettings;
         

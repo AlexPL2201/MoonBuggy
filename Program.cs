@@ -3,9 +3,11 @@
         static GameEngine gameEngine;
         static GameSettings gameSettings;
         static Thread uIThread;
+        static Records rec;
 
 
         static void Main(string[] args) {
+            rec = new Records();
             GameMenu gameMenu = new GameMenu();
             bool _isMenu = true;
             do{
@@ -14,8 +16,10 @@
                     case 0:
                         Initialize();
                         gameEngine.Run();
-                    break;
+                        break;
                     case 1:
+                        rec.recall();
+                        Console.ReadKey();
                         break;
                     case 2:
                         _isMenu = false;

@@ -4,6 +4,7 @@ namespace MoonBuggy {
         private Scene _scene;
         private ScreenRender _screenRender;
         private GameSettings _gameSettings;
+        private Records _newRec;
         public event EventHandler OnSpacePressed;
 
 
@@ -36,6 +37,8 @@ namespace MoonBuggy {
             if (_scene.obstruction.GameObjectPlace.XCoord > 1) {
                 if (_scene.obstruction.GameObjectPlace.XCoord == _scene.buggy.GameObjectPlace.XCoord && _scene.obstruction.GameObjectPlace.YCoord == _scene.buggy.GameObjectPlace.YCoord) {
                     _isNotOver = false;
+                    _newRec = new Records();
+                    _newRec.recnew(_screenRender._score);
 
                 }
                 _scene.obstruction.GameObjectPlace.XCoord--;
