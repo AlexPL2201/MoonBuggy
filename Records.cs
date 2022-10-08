@@ -2,21 +2,15 @@ namespace MoonBuggy {
     class Records {
         public void recall() {
             // StreamReader _Read = new StreamReader("base.txt");
-            string path = @"/Users/sasha/Desktop/Конспекты/Технологии разработки современных программных комплексов/MoonBuggy/Base.txt";
-            string[] readText = File.ReadAllLines(path);
+            string path1 = Directory.GetCurrentDirectory();
+            string path2 = "/Base.txt";
+            string[] readText = File.ReadAllLines(path1 + path2);
 
             int[] newarr = new int[1000];
             for (int i = 0; i < readText.Length; i++ )
             {
-                int n = 0;
                 string text = readText[i].ToString();
-                for (int j = 0; j < text.Length; j++){
-                    n += (int)(text[j] - '0');
-                    if (j != text.Length -1){
-                    n *= 10;
-                    }
-                }
-                newarr[i] = n;
+                newarr[i] = int.Parse(text);
 
             }
             Array.Sort(newarr);

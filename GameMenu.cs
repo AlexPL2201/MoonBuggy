@@ -26,7 +26,7 @@ namespace MoonBuggy
                 string currentOption = _Options[i];
                 string prefix;
                 if (i == _SelectedIndex){
-                    prefix = "*"; 
+                    prefix = ">>"; 
                     Console.ForegroundColor = ConsoleColor.Black;
                     Console.BackgroundColor = ConsoleColor.White;
                 } else{
